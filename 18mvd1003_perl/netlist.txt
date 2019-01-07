@@ -1,0 +1,38 @@
+module detectionnonover(x, clk, z, rst);
+  input x, clk, rst;
+  output z;
+  wire x, clk, rst;
+  wire z;
+  wire [2:0] ps;
+  wire UNCONNECTED, n_0, n_1, n_2, n_3, n_4, n_5, n_6;
+  wire n_7, n_8, n_9, n_10, n_11, n_12, n_13, n_14;
+  wire n_15, n_16, n_17, n_18, n_19, n_20, n_21;
+  DFFQX2 \ps_reg[0] (.CK (clk), .D (n_21), .Q (ps[0]));
+  DFFQX2 \ps_reg[2] (.CK (clk), .D (n_20), .Q (ps[2]));
+  TLATXL z_reg(.G (n_7), .D (n_18), .Q (z), .QN (UNCONNECTED));
+  OAI32X1 g1563(.A0 (rst), .A1 (x), .A2 (n_16), .B0 (n_15), .B1 (n_19),
+       .Y (n_21));
+  DFFQX4 \ps_reg[1] (.CK (clk), .D (n_17), .Q (ps[1]));
+  OAI32X1 g1564(.A0 (rst), .A1 (x), .A2 (n_9), .B0 (n_14), .B1 (n_19),
+       .Y (n_20));
+  AOI21XL g1566(.A0 (n_11), .A1 (n_10), .B0 (n_1), .Y (n_18));
+  AOI21X1 g1565(.A0 (n_16), .A1 (n_6), .B0 (rst), .Y (n_17));
+  NOR2XL g1567(.A (n_13), .B (n_12), .Y (n_15));
+  AOI21X1 g1568(.A0 (n_8), .A1 (n_13), .B0 (n_12), .Y (n_14));
+  INVXL g1572(.A (n_12), .Y (n_11));
+  NAND2BXL g1569(.AN (n_9), .B (n_8), .Y (n_10));
+  NOR3X2 g1573(.A (ps[2]), .B (n_5), .C (n_2), .Y (n_12));
+  NAND2XL g1575(.A (n_8), .B (ps[1]), .Y (n_7));
+  NAND2X1 g1570(.A (n_4), .B (x), .Y (n_6));
+  NAND3X2 g1571(.A (ps[1]), .B (n_3), .C (n_5), .Y (n_16));
+  CLKINVX1 g1576(.A (n_4), .Y (n_9));
+  NAND2X4 g1578(.A (x), .B (n_0), .Y (n_19));
+  CLKINVX1 g1581(.A (n_3), .Y (n_8));
+  NOR2BX2 g1577(.AN (ps[0]), .B (ps[1]), .Y (n_4));
+  NOR2X1 g1574(.A (ps[0]), .B (ps[1]), .Y (n_13));
+  CLKINVX1 g1580(.A (ps[1]), .Y (n_2));
+  CLKINVX2 g1583(.A (ps[0]), .Y (n_5));
+  CLKINVX2 g1582(.A (ps[2]), .Y (n_3));
+  INVXL g1579(.A (x), .Y (n_1));
+  CLKINVX6 g1584(.A (rst), .Y (n_0));
+endmodule
